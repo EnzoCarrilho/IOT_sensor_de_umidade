@@ -1,0 +1,39 @@
+{
+    "version": 1,
+    "author": "Enzo Carrilho",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "wokwi-breadboard-half", "id": "bb1", "top": 35.4, "left": 252.4, "attrs": {} },
+      { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 19.2, "left": 62.44, "attrs": {} },
+      { "type": "wokwi-led", "id": "led1", "top": 54, "left": 291.8, "attrs": { "color": "red" } },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 137.8,
+        "left": 287.15,
+        "rotate": 270,
+        "attrs": { "value": "1000" }
+      },
+      {
+        "type": "wokwi-photoresistor-sensor",
+        "id": "ldr1",
+        "top": 3.2,
+        "left": -229.6,
+        "attrs": {}
+      }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "bb1:tn.16", "bb1:4t.a", "green", [ "v-48.1", "h-152" ] ],
+      [ "esp:GND.2", "bb1:tn.25", "black", [ "v-67.2", "h19.2" ] ],
+      [ "led1:A", "bb1:5t.b", "", [ "$bb" ] ],
+      [ "led1:C", "bb1:4t.b", "", [ "$bb" ] ],
+      [ "r1:1", "bb1:5b.h", "", [ "$bb" ] ],
+      [ "r1:2", "bb1:5t.d", "", [ "$bb" ] ],
+      [ "ldr1:VCC", "esp:3V3", "red", [ "h86.4", "v28.8" ] ],
+      [ "ldr1:GND", "esp:GND.1", "black", [ "h28.8", "v134" ] ],
+      [ "ldr1:DO", "esp:34", "green", [ "h0" ] ]
+    ],
+    "dependencies": {}
+  }
